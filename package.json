@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "start": "sudo node main.js",
-    "test": "./node_modules/.bin/istanbul cover test.js"
+    "coverage": "./node_modules/.bin/istanbul cover test.js"
+    "unittest": "./node_modules/.bin/mocha -u tdd test/unit_test.js"
 
   },
   "author": "",
