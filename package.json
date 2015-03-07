@@ -4,8 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "node main.js",
-    "test": "./node_modules/.bin/istanbul cover test.js"
+    "start": "sudo node main.js",
+    "test": "sudo ./node_modules/.bin/istanbul cover test.js"
 
   },
   "author": "",
