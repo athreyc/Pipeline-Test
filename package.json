@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "sudo node main.js",
-    "test": "sudo ./node_modules/.bin/istanbul cover test.js"
+    "test": "./node_modules/.bin/istanbul cover test.js"
 
   },
   "author": "",
