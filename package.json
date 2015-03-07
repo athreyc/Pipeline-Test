@@ -4,8 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "sudo node main.js",
-    "coverage": "./node_modules/.bin/istanbul cover test.js",
+    "start": "sudo nodejs main.js",
+    "coverage": "./node_modules/.bin/istanbul cover test.js > xyz.xml",
     "unittest": "./node_modules/.bin/mocha -u tdd test/unit_test.js"
 
   },
@@ -17,6 +17,7 @@
     "istanbul": "^0.3.5",
     "mock-fs": "^2.3.2",
     "mockfs": "^0.1.5",
-    "underscore": "^1.7.0"
+    "underscore": "^1.7.0",
+    "mocha": "^2.2.0"
   }
 }
