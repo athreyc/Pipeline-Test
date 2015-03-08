@@ -35,7 +35,7 @@ fi
 if [ "${1##*.}" = "class" ]; then
         if [ -e "$1" ]; then
                 echo "Running findbugs on $*:"
-                java -jar "${jar}" -textui -longBugCodes -exclude "${xml}" -auxclasspath "${aux}" $*
+                java -jar "${jar}" -textui -longBugCodes -exclude "${xml}" -html -auxclasspath "${aux}" $*
         else
                 echo "File not found! Make sure you are specifying the path correctly."
                 echo "The filename is case sensitive."
