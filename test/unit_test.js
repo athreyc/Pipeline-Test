@@ -11,7 +11,7 @@ var assert = require('assert')
 		});
     		test('inc should return 2', function(done) 
 		{
-          		assert.equal(3, inc(-1,1));
+          		assert.equal(2, inc(-1,1));
 			done();
 		});
     	});
