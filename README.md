@@ -38,7 +38,7 @@ This requires the following steps:
 <li> Using the jar file as prepared from the previous step, the findbugs program is run again on the HelloWorld.class to fail build process if this custom detector detects a problem </li>
 </ol>
 
-Note: On Jenkins, failing the build due to analysis was not done 9although this was achieved successfully on an Eclipse build (Windows) and only reporting is shown in the screenshots.  
+Note: On Jenkins, failing the build due to analysis was not done due to issue I ran into for findbugs-maven-plugin (although this was achieved successfully on an Eclipse build (Windows)). Hence, only reporting of errors is shown in the screenshots.  
 
 
 
