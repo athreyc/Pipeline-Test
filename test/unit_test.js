@@ -1,6 +1,6 @@
 
 var assert = require('assert')
-  , inc = require('./../subject').inc;
+   , inc = require('./../subject').inc;
 
 	suite('inc', function() 
     	{
