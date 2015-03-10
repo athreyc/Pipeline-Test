@@ -7,7 +7,6 @@
     "start": "sudo nodejs main.js",
     "coverage": "./node_modules/.bin/istanbul cover test.js > xyz.xml",
     "unittest": "./node_modules/.bin/mocha -u tdd test/unit_test.js  -R doc > ./mocha_report.html"
-
   },
   "author": "",
   "license": "ISC",
