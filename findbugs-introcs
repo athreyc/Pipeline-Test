@@ -11,7 +11,7 @@
 FINDBUGS=findbugs-?.?.?
 
 # This must match the specified install directory
-INSTALL=/var/lib/jenkins/jobs/TestProject/workspace
+INSTALL=/var/lib/jenkins/jobs/Test/workspace
 
 # Sets the paths to arrays of matching checkstyle jar and xml files
 jar=(${INSTALL}/${FINDBUGS}/lib/findbugs.jar)
