@@ -5,7 +5,7 @@
 # Sample script obtained from the reference as in README
 # Hayk Martirosyan
 # -------------------
-# Easy-to-understand wrapper for using findbugs.
+# Easy-to-understand wrapper for using findbugs
 # *************************************************
 
 # This must match the unzipped folder name of findbugs
