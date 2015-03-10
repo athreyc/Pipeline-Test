@@ -2,16 +2,17 @@
 
 # *************************************************
 # findbugs-introcs
+# Sample script obtained from the reference as in README
 # Hayk Martirosyan
 # -------------------
-# Easy-to-understand wrapper for using findbugs.
+# Easy-to-understand wrapper for using findbugs
 # *************************************************
 
 # This must match the unzipped folder name of findbugs
 FINDBUGS=findbugs-?.?.?
 
 # This must match the specified install directory
-INSTALL=/var/lib/jenkins/jobs/mavenrun/workspace
+INSTALL=/var/lib/jenkins/jobs/Check/workspace
 
 # Sets the paths to arrays of matching checkstyle jar and xml files
 jar=(${INSTALL}/${FINDBUGS}/lib/findbugs.jar)

@@ -1,78 +1,46 @@
-### Test Generation
+### Test section
+For this milestone, files (JavaScript) used in the classroom workshop for test generation have been reused along with a simple Java program for analysis section.
 
-Get started.
+The relevant tools and plugins used for testing are:
+<ul>
+<li> AWS Ubuntu instance - For running environment </li>
+<li> Mocha - For unit testing </li> 
+<li> Istanbul - For coverage analysis </li>
+<li> Findbugs - For static analysis </li>
+<li> HTML publisher plugin on Jenkins - For reporting </li>
+</ul>
 
-    git clone https://github.com/CSC-DevOps/TestGeneration.git
-    cd TestGeneration
-    npm install
+Note: Much of the testing and analysis functionalities (Success/Failure) are intiated via pre-build scripts on Jenkins. Only the relevant reports are generated and displayed by Jenkins.
 
-### Getting a simple coverage report
+After setting up the Jenkins server, the following steps were done to configure the build:
 
-[Useful resource](http://ariya.ofilabs.com/2012/12/javascript-code-coverage-with-istanbul.html) for istanbul.
+<ol>
+<li> Create a Freestyle project and use the SSH clone repo URL to link the project to the GitHub project </li>
+<li> Use the pre-build shell scripts as in the Jenkins file to install mocha, istanbul and nodejs </li>
+<li> Furthermore, specify the mocha script in package.json file for the project to use -R doc option for the report file </li>
+<li> Use the HTML publisher plugin on Jenkins job config page to specify the paths of the HTML file for mocha output </li>
+<li> Using the same step, specify the HTML file path for the coverage produced by istanbul (in /coverage/lcov-report dir) </li>
+<li> Finally, use the FindBugs command line option to produce the report in a desired o/p file using -html -output options Please see findbugs-introcs script for this</li>
+<li> To fail the build when a Mocha unit test fails, the pre-build script would return a non-zero value effectively failing the build process </li>
 
-You can run the local version as follows:
+</ol>
 
-    node_modules/.bin/istanbul cover test.js
-    node_module\.bin\istanbul cover test.js (Windows)
+### Analysis section
 
-To install istanbul globally, saving some keystrokes, you can do the following:
+To showcase analysis, FindBugs has been used to catch some static analysis bugs in the sample HelloWorld Java program.  
+This requires the following steps:
 
-    npm install istanbul -G
+<ol>
+<li> Create a findbugs.xml file to specify which bug patterns to report and whcih ones to ignore. Please see the used file in the repo </li>
+<li> Run the findbugs program using the CLI on the compiled HelloWorld.class. This is done via the script (See Jenkins config file) following instructions in <a href="url">http://algs4.cs.princeton.edu/windows/</a> </li>
+<li> The findbugs program would report the warnings as per the xml file specification </li>
+<li> For extending FindBugs, a custom detector plugin that reports usage of System.out in the program was developed as per the instructions in <a href="url">https://code.google.com/p/findbugs/wiki/DetectorPluginTutorial</a> </li>
+<li> Using the jar file as prepared from the previous step, the findbugs program is run again on the HelloWorld.class to fail build process if this custom detector detects a problem </li>
+</ol>
 
-You'll get a high level report as follows (a more detailed report will be stored in `coverage/`):
-<pre>
-=============================== Coverage summary ===============================
-
-Statements   : 80% ( 4/5 )
-Branches     : 50% ( 1/2 )
-Functions    : 100% ( 1/1 )
-Lines        : 100% ( 4/4 )
-================================================================================
-</pre>
+Note: On Jenkins, failing the build due to analysis was not done 9although this was achieved successfully on an Eclipse build (Windows) and only reporting is shown in the screenshots.  
 
 
-### Test Generation with Constraints and Mocking
 
-Run `node main.js` to generate `test.js`.  The code under test is `subject.js`.
 
-* 1) Use the `mock-fs` framework to generate a fake file system to help improve coverage.
-* 2) Use the `faker` framework to generate a fake phone number to help improve coverage.
-* 3) Extend the constraint discovery code to handle `>` and `<`.
-* 4) Use clues in the code to automate the process of including file system, phone number mocking without manual injection.
-
-[faker.js docs](https://github.com/Marak/faker.js), [mock-fs docs](https://www.npmjs.com/package/mock-fs)
-
-##### You can see a better visualization of the results here:
-    
-    open coverage/lcov-report/TestGeneration/subject.js.html
-
-### Test Generation in Java
-
-Download randoop:
-
-    wget https://randoop.googlecode.com/files/randoop.1.3.4.jar
-
-Sample execution to generate tests for all classes in the java.util.Collections namespace (Need Java 7):
-
-    java -classpath randoop.1.3.4.jar randoop.main.Main gentests --testclass=java.util.TreeSet --testclass=java.util.Collections --timelimit=60
-
-This will create a file `RandoopTest.java`, which contains a test driver, and `RandoopTest0.java`, which contains the generated unit tests.
-
-### Coverage in Java
-
-[Emma](http://emma.sourceforge.net/intro.html) is a decent option to collect coverage information form a java program.
-
-achandra@ACHANDRA-PC ~/test/TestGeneration (master)
-$ node_modules/.bin/istanbul cover test.js
-=============================================================================
-Writing coverage object [d:\Users\achandra.CORP\test\TestGeneration\coverage\coverage.json]
-Writing coverage reports at [d:\Users\achandra.CORP\test\TestGeneration\coverage]
-=============================================================================
-
-=============================== Coverage summary ===============================
-Statements   : 100% ( 59/59 )
-Branches     : 93.75% ( 15/16 )
-Functions    : 100% ( 5/5 )
-Lines        : 100% ( 58/58 )
-================================================================================
 
