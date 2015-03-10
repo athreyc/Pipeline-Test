@@ -1,0 +1,10 @@
+<FindbugsPlugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="findbugsplugin.xsd" 
+        pluginid="edu.umd.cs.findbugs.pluginTutorial"
+        provider="FindBugs Tutorial" 
+        website="http://findbugs.sourceforge.net">
+
+        <Detector class="tutorial.CallToSystemOutPrintlnDetector2" reports="TUTORIAL_BUG" />
+        <BugPattern type="TUTORIAL_BUG" abbrev="TU" category="CORRECTNESS"/>
+
+</FindbugsPlugin>

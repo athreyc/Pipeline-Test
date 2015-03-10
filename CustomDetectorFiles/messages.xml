@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MessageCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="messagecollection.xsd">
+
+        <Plugin>
+                <ShortDescription>FindBugs Plugin Tutorial Plugin</ShortDescription>
+                <Details>Provides detectors as part of the FindBugs detector plugin
+                        tutorial.</Details>
+        </Plugin>
+
+        <Detector class="tutorial.CallToSystemOutPrintlnDetector2">
+                <Details>
+                        Finds calls to System.out or System.err
+                </Details>
+        </Detector>
+
+        <BugPattern type="TUTORIAL_BUG">
+                <ShortDescription>Call to System class</ShortDescription>
+                <LongDescription>Call to System class</LongDescription>
+                <Details>
+<![CDATA[
+<p>call to system class</p>
+]]>
+                </Details>
+        </BugPattern>
+
+        <BugCode abbrev="TU">Tutorial</BugCode>
+</MessageCollection>
