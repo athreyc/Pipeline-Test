@@ -2,6 +2,7 @@
 
 # *************************************************
 # findbugs-introcs
+# Sample script obtained from the reference as in README
 # Hayk Martirosyan
 # -------------------
 # Easy-to-understand wrapper for using findbugs.
